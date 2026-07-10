@@ -28,6 +28,13 @@ const QRGenerator = () => {
     setQrValue(value)
     setGenerated(true)
     setAnimKey(k => k + 1)   // re-triggers the CSS animation every generate
+
+    // Smooth scroll to preview on mobile/tablet viewports
+    setTimeout(() => {
+      if (window.innerWidth <= 900 && qrRef.current) {
+        qrRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }
+    }, 150)
   }
 
   // Clamp display size so the card doesn't overflow on smaller screens

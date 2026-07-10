@@ -1,6 +1,6 @@
 import styles from './Header.module.css'
 
-const Header = () => {
+const Header = ({ isDark, onToggle }) => {
   return (
     <header className={styles.header}>
       <div className={styles.logo}>
@@ -13,7 +13,21 @@ const Header = () => {
         </svg>
         <span className={styles.logoText}>QR Generator</span>
       </div>
+
       <p className={styles.tagline}>Create QR codes for URLs, contacts, WiFi &amp; more</p>
+
+      {/* Theme toggle */}
+      <button
+        className={styles.themeBtn}
+        onClick={onToggle}
+        aria-label={isDark ? 'Switch to day mode' : 'Switch to night mode'}
+        title={isDark ? 'Day mode' : 'Night mode'}
+      >
+        <span className={styles.themeBtnTrack}>
+          <span className={`${styles.themeBtnThumb} ${isDark ? '' : styles.thumbDay}`} />
+        </span>
+        <span className={styles.themeIcon}>{isDark ? '🌙' : '☀️'}</span>
+      </button>
     </header>
   )
 }

@@ -180,10 +180,8 @@
     gap: 20px;
   }
 
-  /* Preview comes first on tablet/phone */
   .rightCol {
     position: static;
-    order: -1;
   }
 }
 
