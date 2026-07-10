@@ -1,0 +1,68 @@
+.wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+/* ── Shared button base ──────────────────── */
+.btnPrimary,
+.btnSecondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 11px 14px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.2px;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ripple on press */
+.btnPrimary::after,
+.btnSecondary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.08);
+  opacity: 0;
+  transition: opacity 0.12s;
+}
+.btnPrimary:active::after,
+.btnSecondary:active::after { opacity: 1; }
+
+/* ── Primary (PNG) ───────────────────────── */
+.btnPrimary {
+  background: linear-gradient(135deg, #8b5cf6 0%, #6d28d9 100%);
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 18px var(--accent-glow);
+}
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(139,92,246,0.5);
+}
+.btnPrimary:active { transform: translateY(0); }
+
+/* ── Secondary (SVG) ─────────────────────── */
+.btnSecondary {
+  background: var(--surface-3);
+  border: 1px solid var(--border);
+  color: var(--text);
+}
+.btnSecondary:hover {
+  transform: translateY(-2px);
+  border-color: rgba(139,92,246,0.45);
+  color: var(--text-h);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+.btnSecondary:active { transform: translateY(0); }
+
+@media (max-width: 380px) {
+  .wrap { grid-template-columns: 1fr; }
+}

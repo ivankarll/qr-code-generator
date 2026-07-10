@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 32px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+  flex-wrap: wrap;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logoText {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-h);
+  letter-spacing: -0.5px;
+}
+
+.tagline {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+@media (max-width: 600px) {
+  .header { padding: 16px 20px; }
+  .tagline { display: none; }
+}

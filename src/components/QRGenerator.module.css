@@ -1,0 +1,203 @@
+/* ════════════════════════════════════════════════════
+   QRGenerator layout — desktop / tablet / phone
+   ════════════════════════════════════════════════════ */
+
+/* ── Two-column grid ─────────────────────── */
+.layout {
+  display: grid;
+  grid-template-columns: minmax(300px, 440px) 1fr;
+  gap: 28px;
+  padding: 28px 32px;
+  flex: 1;
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: start;
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rightCol {
+  display: flex;
+  flex-direction: column;
+  position: sticky;
+  top: 24px;
+}
+
+/* ── Section label ───────────────────────── */
+.sectionLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.4px;
+  color: var(--text-muted);
+  margin: 0 0 10px;
+}
+
+.section { display: flex; flex-direction: column; }
+
+/* ── Preview card ────────────────────────── */
+.previewCard {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  min-height: 260px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 32px 24px;
+  position: relative;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Ambient glow that appears on hover */
+.previewCard::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 50%, var(--accent-glow) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.4s;
+  pointer-events: none;
+}
+.previewCard:hover {
+  border-color: rgba(139, 92, 246, 0.28);
+  box-shadow: 0 0 48px rgba(139, 92, 246, 0.1);
+}
+.previewCard:hover::before { opacity: 0.7; }
+
+/* Active (has QR) — subtle ring */
+.previewActive {
+  border-color: rgba(139, 92, 246, 0.2);
+}
+
+/* ── QR appear animation ─────────────────── */
+.qrWrap {
+  animation: qrReveal 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes qrReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.82) translateY(10px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0);
+  }
+}
+
+/* ── Placeholder ─────────────────────────── */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+  user-select: none;
+}
+
+.placeholderIcon {
+  color: var(--text-muted);
+  opacity: 0.45;
+  margin-bottom: 4px;
+  animation: float 3.5s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0);    }
+  50%       { transform: translateY(-8px); }
+}
+
+.placeholderTitle {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--text);
+  margin: 0;
+}
+
+.placeholderSub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+.placeholderSub strong { color: var(--accent-2); font-weight: 600; }
+
+/* ── Encoded value box ───────────────────── */
+.encodedBox {
+  margin-top: 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  animation: fadeUp 0.3s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0);   }
+}
+
+.encodedLabel {
+  font-size: 9px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+
+.encodedCode {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 11px;
+  color: var(--accent-2);
+  word-break: break-all;
+  white-space: pre-wrap;
+  line-height: 1.65;
+}
+
+/* ════════════════════════════════════════════════════
+   RESPONSIVE — Tablet  ≤ 900px
+   ════════════════════════════════════════════════════ */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+    padding: 20px;
+    gap: 20px;
+  }
+
+  /* Preview comes first on tablet/phone */
+  .rightCol {
+    position: static;
+    order: -1;
+  }
+}
+
+/* ════════════════════════════════════════════════════
+   RESPONSIVE — Phone  ≤ 540px
+   ════════════════════════════════════════════════════ */
+@media (max-width: 540px) {
+  .layout {
+    padding: 14px;
+    gap: 14px;
+  }
+
+  .previewCard {
+    padding: 24px 16px;
+    min-height: 220px;
+  }
+}
