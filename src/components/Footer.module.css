@@ -68,9 +68,15 @@
 /* ── Responsive ──────────────────────────── */
 @media (max-width: 640px) {
   .inner {
-    padding: 16px 20px;
-    gap: 12px;
+    padding: 12px 16px;
+    gap: 10px;
   }
   .links { margin-left: 0; }
   .copy  { width: 100%; }
+}
+
+@media (max-width: 380px) {
+  .inner  { padding: 10px 14px; gap: 8px; }
+  .links  { display: none; }   /* hide badges on tiny screens to save height */
+  .copy   { font-size: 11px; }
 }

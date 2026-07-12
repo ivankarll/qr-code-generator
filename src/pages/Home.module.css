@@ -1,6 +1,16 @@
 .page {
-  min-height: 100vh;
+  height: 100dvh;          /* fill exactly one viewport height */
   display: flex;
   flex-direction: column;
   background: var(--bg);
+  overflow: hidden;        /* prevent the whole page from scrolling */
+}
+
+/* The scrollable main content sits between sticky header + footer */
+.main {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
 }

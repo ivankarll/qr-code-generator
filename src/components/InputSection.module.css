@@ -185,7 +185,18 @@
 .generateBtn:active { transform: translateY(0); }
 
 @media (max-width: 540px) {
-  .typeTabs { padding: 14px 14px 0; }
-  .fields { padding: 16px; }
-  .grid2 { grid-template-columns: 1fr; }
+  .typeTabs { padding: 12px 12px 0; gap: 2px; }
+  .typeTab   { padding: 7px 10px; font-size: 12px; gap: 4px; }
+  .tabIcon   { font-size: 13px; }
+  .fields    { padding: 14px 12px; gap: 12px; }
+  .grid2     { grid-template-columns: 1fr; }
+  .generateBtn { padding: 12px; font-size: 14px; }
+}
+
+@media (max-width: 380px) {
+  .typeTabs  { padding: 10px 10px 0; }
+  .typeTab   { padding: 6px 8px; font-size: 11px; }
+  .fields    { padding: 12px 10px; gap: 10px; }
+  .input     { padding: 8px 10px; font-size: 13px; }
+  .generateBtn { padding: 10px; font-size: 13px; }
 }

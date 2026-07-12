@@ -27,7 +27,9 @@ const Home = () => {
   return (
     <div className={styles.page}>
       <Header isDark={isDark} onToggle={handleToggle} />
-      <QRGenerator />
+      <main className={styles.main}>
+        <QRGenerator />
+      </main>
       <Footer />
     </div>
   )
