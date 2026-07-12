@@ -1,16 +1,19 @@
 .page {
-  height: 100dvh;          /* fill exactly one viewport height */
+  height: 100%;                /* inherit full viewport from #root */
   display: flex;
   flex-direction: column;
   background: var(--bg);
-  overflow: hidden;        /* prevent the whole page from scrolling */
+  overflow: hidden;            /* clamp — only .main scrolls */
 }
 
-/* The scrollable main content sits between sticky header + footer */
+/* The scrollable zone between sticky header + footer */
 .main {
   flex: 1;
+  min-height: 0;               /* critical: lets flex child shrink below content size */
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
+  width: 100%;
 }
+

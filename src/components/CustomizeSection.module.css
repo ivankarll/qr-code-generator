@@ -185,7 +185,7 @@
 .segActive .segHint { opacity: 0.85; }
 
 @media (max-width: 540px) {
-  .container  { padding: 14px; gap: 16px; }
+  .container  { padding: 14px; gap: 16px; border-radius: 0; }
   .chip       { width: 32px; height: 32px; border-radius: 8px; }
   .seg        { padding: 6px 4px; }
   .segLetter  { font-size: 13px; }
@@ -196,7 +196,7 @@
 }
 
 @media (max-width: 380px) {
-  .container  { padding: 10px; gap: 12px; }
+  .container  { padding: 12px; gap: 12px; }
   .chip       { width: 28px; height: 28px; border-radius: 7px; }
   .label      { font-size: 10px; }
   .segLetter  { font-size: 12px; }

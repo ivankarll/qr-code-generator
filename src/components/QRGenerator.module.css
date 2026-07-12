@@ -176,7 +176,7 @@
 @media (max-width: 900px) {
   .layout {
     grid-template-columns: 1fr;
-    padding: 20px;
+    padding: 20px 16px;
     gap: 20px;
   }
 
@@ -190,22 +190,22 @@
    ════════════════════════════════════════════════════ */
 @media (max-width: 540px) {
   .layout {
-    padding: 12px;
-    gap: 12px;
+    padding: 8px 0 16px;  /* small top, zero sides, breathing room at bottom */
+    gap: 10px;
   }
 
+  /* Hide tiny uppercase labels on mobile — saves space */
+  .sectionLabel { display: none; }
+
   .previewCard {
-    padding: 20px 12px;
+    border-radius: 0;
+    padding: 20px 16px;
     min-height: 180px;
   }
 
-  .sectionLabel {
-    font-size: 9px;
-    margin-bottom: 6px;
-  }
-
   .encodedBox {
-    padding: 10px 12px;
+    border-radius: 0;
+    padding: 10px 14px;
   }
 
   .encodedCode {
@@ -218,12 +218,12 @@
    ════════════════════════════════════════════════════ */
 @media (max-width: 380px) {
   .layout {
-    padding: 10px;
-    gap: 10px;
+    padding: 6px 0 12px;
+    gap: 8px;
   }
 
   .previewCard {
-    padding: 16px 10px;
+    padding: 16px 12px;
     min-height: 160px;
   }
 }
