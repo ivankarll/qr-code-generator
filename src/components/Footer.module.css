@@ -1,7 +1,12 @@
 .footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 100;
   border-top: 1px solid var(--border);
   background: var(--surface);
   margin-top: auto;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
 }
 
 .inner {
