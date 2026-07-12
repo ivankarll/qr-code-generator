@@ -1,12 +1,7 @@
 .footer {
-  position: sticky;
-  bottom: 0;
-  z-index: 100;
   border-top: 1px solid var(--border);
   background: var(--surface);
   margin-top: auto;
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
 }
 
 .inner {
@@ -39,6 +34,17 @@
   font-size: 12px;
   color: var(--text-muted);
   margin: 0;
+}
+
+.portfolioLink {
+  color: var(--accent-2);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.15s;
+}
+.portfolioLink:hover {
+  color: var(--accent);
+  text-decoration: underline;
 }
 
 /* ── Type badges ─────────────────────────── */

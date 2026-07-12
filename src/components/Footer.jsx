@@ -18,7 +18,15 @@ const Footer = () => {
         </div>
 
         <p className={styles.copy}>
-          &copy; Ivan Karl Lobaton | {year} &nbsp;·&nbsp; Free to use &nbsp;·&nbsp; No sign-up required
+          &copy; Ivan Karl Lobaton | {year} &nbsp;·&nbsp; Free to use &nbsp;·&nbsp; No sign-up required &nbsp;·&nbsp;{' '}
+          <a
+            href="https://ivankarll.github.io/portfolio/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className={styles.portfolioLink}
+          >
+            View My Portfolio
+          </a>
         </p>
 
         <div className={styles.links}>

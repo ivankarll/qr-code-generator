@@ -77,17 +77,19 @@ const InputSection = ({ onChange, onGenerate }) => {
   return (
     <div className={styles.container}>
       {/* Type Tabs */}
-      <div className={styles.typeTabs}>
-        {QR_TYPES.map(qt => (
-          <button
-            key={qt.id}
-            className={`${styles.typeTab} ${type === qt.id ? styles.activeTab : ''}`}
-            onClick={() => handleTypeChange(qt.id)}
-          >
-            <span className={styles.tabIcon}>{qt.icon}</span>
-            <span>{qt.label}</span>
-          </button>
-        ))}
+      <div className={styles.tabsWrapper}>
+        <div className={styles.typeTabs}>
+          {QR_TYPES.map(qt => (
+            <button
+              key={qt.id}
+              className={`${styles.typeTab} ${type === qt.id ? styles.activeTab : ''}`}
+              onClick={() => handleTypeChange(qt.id)}
+            >
+              <span className={styles.tabIcon}>{qt.icon}</span>
+              <span>{qt.label}</span>
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Fields */}

@@ -29,8 +29,8 @@ const Home = () => {
       <Header isDark={isDark} onToggle={handleToggle} />
       <main className={styles.main}>
         <QRGenerator />
+        <Footer />
       </main>
-      <Footer />
     </div>
   )
 }
